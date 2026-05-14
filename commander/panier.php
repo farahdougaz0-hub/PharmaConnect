@@ -2,28 +2,27 @@
 session_start();
 require_once __DIR__ . "/../config/db.php";
 
-// إنشاء panier في session
 if (!isset($_SESSION['panier'])) {
     $_SESSION['panier'] = [];
 }
 
-// إذا جا id من commander
+
 if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    // جلب médicament من DB
+  
     $stmt = $pdo->prepare("SELECT * FROM medicaments WHERE id=?");
     $stmt->execute([$id]);
     $med = $stmt->fetch();
 
-    // نزيده في panier
+  
     if ($med) {
         $_SESSION['panier'][] = $med;
     }
 }
 
-// حساب total
+
 $total = 0;
 ?>
 
@@ -31,7 +30,7 @@ $total = 0;
 <html>
 <body>
 
-<h2>🛒 Panier</h2>
+<h2> Panier</h2>
 
 <table border="1">
 <tr>
@@ -50,18 +49,18 @@ $total = 0;
 </tr>
 
 <?php 
-    $total += $item['prix']; // ✅ حساب total
+    $total += $item['prix']; 
 endforeach; 
 ?>
 
 </table>
 
-<h3>✅ Total: <?= $total ?> DT</h3>
+<h3>Total: <?= $total ?> DT</h3>
 
 <br>
 
-<a href="valider.php">✔ Valider commande</a> |
-<a href="../dashboard.php">⬅ Retour</a>
+<a href="valider.php"> Valider commande</a> |
+<a href="../dashboard.php"> Retour</a>
 
 </body>
 </html>
