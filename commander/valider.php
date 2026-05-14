@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . "/../config/db.php";
 
-// ✅ CORRIGÉ : vérifier que le panier n'est pas vide
+
 if (empty($_SESSION['panier'])) {
     header("Location: panier.php");
     exit();
@@ -34,10 +34,10 @@ $_SESSION['panier'] = [];
 </head>
 <body>
 <div class="container">
-    <h1 style="color:#27ae60;">✅ Commande validée avec succès !</h1>
+    <h1 style="color:#27ae60;">Commande validée avec succès !</h1>
     <p style="text-align:center;">Votre commande #<?= $commande_id ?> a été enregistrée.</p>
     <div class="actions">
-        <a href="../dashboard.php">🏠 Retour au Dashboard</a>
+        <a href="../dashboard.php"> Retour au Dashboard</a>
     </div>
 </div>
 </body>
