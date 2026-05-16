@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h2>🔍 Recherche Médicaments</h2>
+<h2> Recherche Médicaments</h2>
 
 <form method="GET">
     <input type="text" name="search" placeholder="Nom / Prix / Catégorie">
@@ -15,7 +15,7 @@
 <br>
 
 <?php
-// CONNEXION (بدلها حسب base متاعك)
+
 $conn = new mysqli("localhost", "root", "", "pharmaconnect");
 
 // recherche
@@ -48,7 +48,7 @@ if (isset($_GET['search'])) {
 
    <td style="min-width: 180px; text-align: center;">
     <a href="../commander/panier.php?id=<?= $m['id'] ?>">
-        <button style="padding: 6px 12px;">🛒 Commander</button>
+        <button style="padding: 6px 12px;"> Commander</button>
     </a>
    </td>
 
@@ -61,14 +61,13 @@ if (isset($_GET['search'])) {
 
 <?php
     } else {
-        echo "<p>Aucun résultat ❌</p>";
+        echo "<p>Aucun résultat</p>";
     }
 }
 ?>
 
 <br>
 
-<!-- كيف Retour -->
 <a href="../dashboard.php">⬅ Retour</a>
 
 
