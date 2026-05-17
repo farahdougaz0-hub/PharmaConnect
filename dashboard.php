@@ -32,6 +32,7 @@ $mes_rsv = $stmt2->fetchColumn();
     <meta charset="UTF-8">
     <title>Dashboard - PharmaConnect</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -72,8 +73,9 @@ $mes_rsv = $stmt2->fetchColumn();
         <a href="admin/commandes/liste.php" class="btn">Gerer Commandes</a>
         <a href="admin/reservations/liste.php" class="btn">Gerer Reservations</a>
         <a href="admin/clients/liste.php" class="btn">Gerer Clients</a>
-        <a href="admin/statistiques.php" class="btn">Statistiques</a>
-    </div>
+        <a href="admin/statistiques.php" class="btn">
+        <i class="fa-solid fa-chart-line"></i> Statistiques
+</a>    </div>
 
     <hr>
     <?php endif; ?>
