@@ -1,13 +1,7 @@
--- ============================================
---  PharmaConnect - Base de données complète
--- ============================================
+
 
 CREATE DATABASE IF NOT EXISTS pharmaconnect CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE pharmaconnect;
 
--- ============================================
--- TABLE : utilisateurs (entité USER)
--- ============================================
 CREATE TABLE IF NOT EXISTS utilisateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
@@ -19,9 +13,8 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- ============================================
--- ENTITÉ 1 : categories
--- ============================================
+-
+
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
@@ -29,9 +22,7 @@ CREATE TABLE IF NOT EXISTS categories (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- ============================================
--- ENTITÉ 2 : medicaments
--- ============================================
+
 CREATE TABLE IF NOT EXISTS medicaments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(150) NOT NULL,
@@ -44,9 +35,8 @@ CREATE TABLE IF NOT EXISTS medicaments (
     FOREIGN KEY (categorie_id) REFERENCES categories(id) ON DELETE SET NULL
 );
 
--- ============================================
--- ENTITÉ 3 : commandes
--- ============================================
+
+
 CREATE TABLE IF NOT EXISTS commandes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT NOT NULL,
@@ -66,9 +56,8 @@ CREATE TABLE IF NOT EXISTS details_commande (
     FOREIGN KEY (medicament_id) REFERENCES medicaments(id) ON DELETE CASCADE
 );
 
--- ============================================
--- ENTITÉ 4 : reservations
--- ============================================
+
+
 CREATE TABLE IF NOT EXISTS reservations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     utilisateur_id INT NOT NULL,
@@ -82,15 +71,13 @@ CREATE TABLE IF NOT EXISTS reservations (
     FOREIGN KEY (medicament_id) REFERENCES medicaments(id) ON DELETE CASCADE
 );
 
--- ============================================
--- DONNÉES DE TEST
--- ============================================
 
--- Admin par défaut (password: admin123)
+
+
 INSERT INTO utilisateurs (nom, email, password, role) VALUES
 ('Admin PharmaConnect', 'admin@pharma.tn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 
--- Catégories
+
 INSERT INTO categories (nom, description) VALUES
 ('Antibiotiques', 'Médicaments contre les infections bactériennes'),
 ('Antidouleurs', 'Médicaments contre la douleur'),
@@ -98,7 +85,7 @@ INSERT INTO categories (nom, description) VALUES
 ('Antiallergiques', 'Médicaments contre les allergies'),
 ('Gastroentérologie', 'Médicaments digestifs');
 
--- Médicaments
+
 INSERT INTO medicaments (nom, description, prix, quantite, categorie_id) VALUES
 ('Amoxicilline 500mg', 'Antibiotique à large spectre', 8.50, 100, 1),
 ('Paracétamol 1g', 'Antidouleur et antipyrétique', 3.20, 200, 2),
