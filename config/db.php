@@ -2,8 +2,8 @@
 // config/db.php — Connexion PDO unique pour tout le projet
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'pharmaconnect');
-define('DB_USER', 'root');
+define('DB_NAME','pharmaconnect-v-final');
+define('DB_USER','root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once "../../config/db.php";
+require_once "../config/db.php";
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../../login.php");
@@ -32,7 +33,7 @@ $reservations = $stmt->fetchAll();
     <h1>Mes reservations</h1>
 
     <div class="liens-actions">
-        <a href="../../liste.php" class="btn">Nouvelle reservation</a>
+        <a href="../liste.php" class="btn">Nouvelle reservation</a>
     </div>
 
     <?php if (empty($reservations)): ?>

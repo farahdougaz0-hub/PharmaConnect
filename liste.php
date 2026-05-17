@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../config/db.php";
+require_once 'config/db.php';
 
 $search = $_GET['search'] ?? '';
 $cat_id = $_GET['categorie'] ?? '';
@@ -71,12 +71,13 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY nom")->fetchAll();
         <?php foreach ($medicaments as $m): ?>
         <tr>
             <td>
-                <?php if (!empty($m['image']) && file_exists("../uploads/medicaments/" . $m['image'])): ?>
-                    <img src="../uploads/medicaments/<?= htmlspecialchars($m['image']) ?>" class="img-med">
-                <?php else: ?>
-                    <span>-</span>
-                <?php endif; ?>
+             <?php if (!empty($m['image']) && file_exists("uploads/medicaments/" . $m['image'])): ?>
+               <img src="uploads/medicaments/<?= htmlspecialchars($m['image']) ?>" class="img-med" width="60">
+             <?php else: ?>
+                <span>-</span>
+             <?php endif; ?>
             </td>
+``
             <td><?= htmlspecialchars($m['nom']) ?></td>
             <td><?= htmlspecialchars($m['categorie_nom'] ?? '') ?></td>
             <td><?= number_format($m['prix'], 2) ?> DT</td>
@@ -89,8 +90,8 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY nom")->fetchAll();
             </td>
             <td>
                 <?php if ($m['quantite'] > 0): ?>
-                    <a href="../commander/panier.php?id=<?= $m['id'] ?>" class="btn">Commander</a>
-                    <a href="../reservations/reserver.php?id=<?= $m['id'] ?>" class="btn">Reserver</a>
+                    <a href="commander/panier.php?id=<?= $m['id'] ?>" class="btn">Commander</a>
+                    <a href="/pharmaconnect-v-final/PharmaConnect/reservations/reserver.php?id=<?= $m['id'] ?>" class="btn">Reserver</a>
                 <?php else: ?>
                     <span style="color:red;">Non disponible</span>
                 <?php endif; ?>
