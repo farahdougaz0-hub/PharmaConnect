@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 
 $msg = $_GET['msg'] ?? '';
 
-// traitement ajout ou suppression
+
 if ($_POST) {
     if ($_POST['action'] == 'ajouter') {
         $pdo->prepare("INSERT INTO categories (nom, description) VALUES (?,?)")
